@@ -26,6 +26,8 @@ A Claude Code plugin providing guided workflows for OpenAeroStruct aerostructura
 
 3. **Start using skills** — e.g. `/oas-mcp-guide:define-geometry`, `/oas-mcp-guide:run-aero-analysis`, etc.
 
+   These also will be triggered automatically if you describe in natural language what you want to analyze using OpenAeroStruct.
+
 4. **Log in** — the first time you call an OAS tool your browser will open for authentication. After login all 24 OAS tools are available.
 
 ### Option 2: claude.ai (Web)
