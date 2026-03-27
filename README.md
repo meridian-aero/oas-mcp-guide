@@ -2,47 +2,46 @@
 
 A Claude Code plugin providing guided workflows for OpenAeroStruct aerostructural analysis and optimization via MCP tools. The plugin bundles the connection to the hosted OAS MCP server — no local installation of OpenAeroStruct required.
 
-## Installation
-
-```
-/plugin install oas-mcp-guide
-```
-
-Or for local development:
-
-```bash
-claude --plugin-dir ./oas-mcp-guide
-```
-
-Installing the plugin automatically configures the MCP server connection to `https://mcp.lakesideai.dev/mcp`. The first time you use an OAS tool, your browser will open for login.
-
 ## Getting Started
 
-### Credentials
+### Prerequisites
 
-You need an account on the OAS MCP server. Log in at: https://auth.lakesideai.dev
+- An account on the OAS MCP server. Sign up / log in at: https://auth.lakesideai.dev if you don't have one.
 
-### Claude Code (CLI)
+### Option 1: Claude Code (CLI / Desktop / IDE)
 
-1. Install the plugin (see above)
-2. Start a Claude Code session
-3. The first time you call an OAS tool, your browser opens for login
-4. After login, all 24 OAS tools are available automatically
+1. **Clone this repo**
 
-### claude.ai (web)
+   ```bash
+   git clone https://github.com/meridian-aero/oas-mcp-guide.git
+   ```
 
-1. Go to https://claude.ai → Settings → Integrations → Add MCP Server
-2. Enter URL: `https://mcp.lakesideai.dev/mcp`
-3. Sign in when redirected
+2. **Load the plugin**
+
+   ```bash
+   claude --plugin-dir ./oas-mcp-guide
+   ```
+
+   This configures the MCP server connection automatically — no extra setup needed.
+
+3. **Start using skills** — e.g. `/oas-mcp-guide:define-geometry`, `/oas-mcp-guide:run-aero-analysis`, etc.
+
+4. **Log in** — the first time you call an OAS tool your browser will open for authentication. After login all 24 OAS tools are available.
+
+### Option 2: claude.ai (Web)
+
+Claude.ai does not support plugins directly, but you can connect the MCP server and use the underlying tools:
+
+1. Open https://claude.ai and go to **Settings → Connectors → Add MCP Server** (click the **+** button)
+2. Enter the server URL: `https://mcp.lakesideai.dev/mcp`
+3. Sign in when redirected to the auth page
+4. After connecting, the OAS tools appear under the MCP tools list. You can enable individual tools (skills) from the connector panel — click the connector, then toggle on the tools you need (e.g. `create_surface`, `run_aero_analysis`, `run_optimization`, etc.)
+
+5. **(Optional) Add guided skills** — claude.ai connects the MCP tools but doesn't automatically load the plugin's guided workflow skills. To add them manually, go to **Settings → Customize → Skills → +** and paste the contents of any `skills/*/SKILL.md` file from this repo. Each skill bundles prompts, validation, and multi-step orchestration on top of the raw tools. For the full experience with all 16 skills loaded automatically, use Claude Code (Option 1).
 
 ### Viewing Dashboards and Plots
 
-After running an analysis, you get a `run_id`. View results at:
-
-- **Dashboard**: `https://mcp.lakesideai.dev/dashboard?run_id=<run_id>`
-- **Provenance**: `https://mcp.lakesideai.dev/viewer?session_id=<session_id>`
-
-You'll be prompted to log in with the same credentials. You can only see your own results.
+After running an analysis, ask for plots at a URL, log in to view.
 
 ## Skills
 

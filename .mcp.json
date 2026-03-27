@@ -1,6 +1,8 @@
 {
-  "OpenAeroStruct": {
-    "type": "http",
-    "url": "https://mcp.lakesideai.dev/mcp"
+  "mcpServers": {
+    "OpenAeroStruct": {
+      "type": "http",
+      "url": "https://mcp.lakesideai.dev/mcp"
+    }
   }
 }
