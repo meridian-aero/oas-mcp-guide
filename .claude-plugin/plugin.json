@@ -1,0 +1,8 @@
+{
+  "name": "oas-mcp-guide",
+  "description": "Guided workflows for OpenAeroStruct aerostructural analysis and optimization. Covers aero/aerostruct analysis, optimization (single- and multi-point), parametric sweeps, architecture comparison, material trades, mesh convergence, and multi-tool integration export.",
+  "version": "1.0.0",
+  "author": {
+    "name": "OpenAeroStruct Contributors"
+  }
+}
